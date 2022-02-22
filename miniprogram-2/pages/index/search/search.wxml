@@ -1,0 +1,114 @@
+<!--pages/index/search/search.wxml-->
+<van-search
+  value="{{ searchValue }}"
+  shape="round"
+  background="#e52a2a"
+  placeholder="请输入搜索关键词"
+  bind:change="change"
+  bind:search="search"
+/>
+<van-tabs active="{{ current }}" bind:change="onChange" swipeable animated lazy-render="false">
+  <van-tab title="楹联({{ coupletNum>99?99:coupletNum }})" name="couplets">
+    <view wx:if="{{ couplets.length == 0 }}">
+      没有查到相关楹联
+    </view>
+    <view style="background-color: rgb(235,235 , 235);">
+      <scroll-view scroll-y="true" style="height: 100%; width: 100%; display: flex; flex-direction: column; ;margin-bottom:10rpx;">
+        <view wx:for="{{couplets}}" class="couplets_list"> 
+          <view bindtap="coupletDetail" class="couplets_type" data-coupletid="{{item.coupletId}}">
+            <view class="upcouplets">
+              <view class="type">上联</view>
+              <view class="up">{{item.coupletUp}}</view>
+            </view>
+
+            <view class="upcouplets">
+              <view class="type">下联</view>
+              <view class="up">{{item.coupletDown}}</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </van-tab>
+  <van-tab title="用户({{ users.length>99?99:users.length }})" name="users">
+    <view style="height:100%">
+      <view wx:if="{{ users.length == 0 }}">
+        没有查到相关用户
+      </view>
+      <view wx:for="{{ users }}">
+        <view class="container more">
+          <view class="user flex-wrp" bindtap="viewOtherInfo" data-userid="{{item.userId}}">
+            <view class="avatar flex-item">
+              <image class="userinfo-avatar" src="{{item.userPortrait}}" background-size="cover"></image>
+            </view>
+            <view class="user-info flex-item">
+              <text class="userinfo-nickname">{{item.userNickname}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="帖子({{ postNum>99?99:postNum }})" name="posts">
+    <view wx:if="{{ posts.length == 0 }}">
+      没有查到相关帖子
+    </view>
+    <scroll-view scroll-y="true" class="container" enable-flex="true">
+      <block wx:for="{{posts}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+        <view class="feedItem" bindtap="showPostDetail" data-postid="{{item.post.postId}}">
+          <view class="fee">
+            <view class="feedSource">
+              <a class="">
+                <view class="avatar">
+                  <image src="{{item.author.userPortrait}}"></image>
+                </view>
+                <text>{{item.author.userNickname}}</text>
+              </a>
+            </view>
+            <view class="cloud">
+              <van-image
+                width="89"
+                height="19"
+                fit="contain"
+                src="../../static/images/post/cloud.png"
+              />
+            </view>
+          </view>
+          <view class="feedContent">
+            <view class="show">
+              <view class="question">
+                <view class="label">
+                  <text>【{{ item.postType.postType }}】</text>
+                </view>
+              </view>
+              <view class="question">
+                <view class="questionLink">
+                  <text>{{item.post.postTitle}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="answerBody">
+              <view class="answerTxt">
+                <text>{{item.post.postContent}}</text>
+              </view>
+              <view class="answerActions">
+                <view class="like dot">
+                  <a>{{item.post.postLike}} 点赞 </a>
+                </view>
+                <view class="comments dot">
+                  <a>{{item.post.postComment}} 评论 </a>
+                </view>
+                <view class="comments">
+                  <a>{{item.post.postBrow}} 浏览 </a>
+                </view>
+                <view class="postTime">
+                  <a>{{item.post.postTime}}</a>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </van-tab>
+</van-tabs>

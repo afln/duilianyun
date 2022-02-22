@@ -1,0 +1,117 @@
+/* pages/index/couplet/coupletDetail.wxss */
+
+.postType{
+  color: rgb(209, 52, 52);
+  font-size: 42rpx;
+  padding-left: 16rpx;
+  width: 260rpx;
+}
+.line-heng{
+  width:95%;
+  height: 1rpx;
+  background-color: rgb(211, 214, 219);
+  margin-top: 25rpx;
+  margin-left: 20rpx;
+}
+.line-heng-fixed{
+  width:95%;
+  height: 1rpx;
+  background-color: rgb(211, 214, 219);
+  margin-top: 25rpx;
+  margin-left: 20rpx;
+  position: fixed;
+  bottom: 3rem;
+}
+
+.flex-box{
+  display: flex;
+}
+
+.fan-box{
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+
+.fan-inner-box{
+  width: 230rpx;
+}
+
+.flex-center{
+  justify-content: center;
+}
+
+.fan-title{
+  color: #909399;
+  font-size: 1.2rem;
+}
+
+.comment{
+  height: 55vh;
+  width: 100%;
+}
+
+.commentInput{
+  bottom: 0vh;
+  margin-left: 0.6rem;
+  margin-right: 0.6rem;
+  width: 100%;
+  position: fixed;
+}
+
+.card-demo image {
+  border-radius: 50%;
+}
+
+.user-comment{
+  margin-right: 1.2rem;
+  margin-left: 1.2rem;
+  font-size: 16px;
+  width: 100%;
+}
+
+.commentIndex{
+  margin-left: 9rem;
+  color: #80848f;
+}
+
+.comment-content{
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+  margin-left: 2.7rem;
+  width: 600rpx;
+  word-break:break-all;
+  font-size: 18px;
+}
+
+.comment-operation{
+  margin-left: 2.7rem;
+}
+
+.portrait{
+  padding-top: 10rpx;
+  padding-left: 42rpx;
+}
+
+.nickname{
+  font-size: 16px;
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+  margin-top: 2rpx;
+  width: 50%;
+}
+
+.title{
+  padding-top: 15rpx;
+  margin-left: 20rpx;
+  font-size: 42rpx;
+}
+
+.postConetent{
+  padding-top: 15rpx;
+  padding-left: 42rpx;
+  font-size: 38rpx;
+}
+
+.operation{
+  padding-top: 18rpx;
+}

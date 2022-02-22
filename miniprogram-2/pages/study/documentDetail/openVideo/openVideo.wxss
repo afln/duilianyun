@@ -1,0 +1,4 @@
+/* pages/study/documentDetail/openVideo/openVideo.wxss */
+.video{
+  width: 100%
+}

@@ -1,0 +1,78 @@
+
+<view class="container more">
+  <view class="user flex-wrp">
+    <view class="avatar flex-item">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    </view>
+    <view class="user-info flex-item">
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+  </view>
+
+  <view class="my">
+      <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="../../static/images/myInfo/introduction.png"></image>
+      </view>
+      <view class="myitem-name flex-item" bindtap="myIntroduction">
+        <text>我的简介</text>
+      </view>
+    </view>
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="../../static/images/myInfo/eye.png"></image>
+      </view>
+      <view class="myitem-name flex-item" bindtap="myAttention">
+        <text>我的关注</text>
+      </view>
+    </view>
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="../../static/images/myInfo/fans.png"></image>
+      </view>
+      <view class="myitem-name flex-item" bindtap="myFans">
+        <text>我的粉丝</text>
+      </view>
+    </view>
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="../../static/images/myInfo/star.png"></image>
+      </view>
+      <view class="myitem-name flex-item" bindtap="myCollection">
+        <text>我的收藏</text>
+      </view>
+    </view>
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="../../static/images/myInfo/recent.png"></image>
+      </view>
+      <view class="myitem-name flex-item"  bindtap="myHistory">
+        <text>最近浏览</text>
+      </view>
+    </view>
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="../../static/images/myInfo/live.png"></image>
+      </view>
+      <view class="myitem-name flex-item" bindtap="myPost">
+        <text>我的帖子</text>
+      </view>
+    </view>
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="../../static/images/myInfo/book.png"></image>
+      </view>
+      <view class="myitem-name flex-item" bindtap="myBook">
+        <text>我的书架</text>
+      </view>
+    </view>
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="../../static/images/myInfo/submit.png"></image>
+      </view>
+      <view class="myitem-name flex-item" bindtap="mysubmit">
+        <text>我的上传</text>
+      </view>
+    </view>
+  </view>
+</view>

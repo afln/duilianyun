@@ -1,0 +1,136 @@
+<view class="flex-box">
+  <view class="flex-box portrait" bindtap="viewAuthorInfo">
+    <van-image
+      round
+      width="3rem"
+      height="3rem"
+      src="{{author.userPortrait}}"
+    />
+  </view>
+  <view class="flex-box nickname">
+    <view>
+      <view>{{author.userNickname}}</view>
+      <view>{{post.postTime}}</view>
+    </view>
+  </view>
+</view>
+<view class="title">
+  <view class="flex-box">
+    <view class="postType">【{{ postType.postType }}】</view>
+    <view>{{post.postTitle}}</view>
+  </view>
+</view>
+<view class="postConetent">
+  <view>
+    <text>{{post.postContent}}</text>
+  </view>
+</view>
+<view class="operation">
+  <view class="flex-box">
+    <!-- 点赞按钮 -->
+    <view class="fan-inner-box" bindtap="like">
+      <view class="flex-box flex-center">
+        <view class="like" wx:if="{{isLike}}">
+          <i-icon type="like_fill" size="40" color="#80848f"/>
+        </view>
+        <view class="like" wx:elif="{{isLike == false}}">
+          <i-icon type="like" size="40"/>
+        </view>
+      </view>
+      <view class="flex-box flex-center">
+        <view class="fan-title">{{ post.postLike }}</view>
+      </view>
+    </view>
+    <!-- 收藏按钮 -->
+    <view class="fan-inner-box" bindtap="collect">
+      <view class="flex-box flex-center">
+        <view class="collection" wx:if="{{isCollection}}">
+          <i-icon type="collection_fill" color="#80848f" size="40"/>
+        </view>
+        <view class="collection" wx:elif="{{isCollection == false}}">
+          <i-icon type="collection" size="40"/>
+        </view>
+      </view>
+      <view class="flex-box flex-center">
+        <view class="fan-title">{{ post.postCollect }}</view>
+      </view>
+    </view>
+    <!-- 浏览量 -->
+    <view class="fan-inner-box">
+      <view class="flex-box flex-center">
+        <i-icon type="browse_fill" size="40"/>
+      </view>
+      <view class="flex-box flex-center">
+        <view class="fan-title">{{post.postBrow}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<van-divider />
+
+<view class="comment">
+  <scroll-view scroll-y="true" style="height: 100%; width: 100%; display: flex; flex-direction: column; ;margin-bottom:10rpx;" bindscrolltolower="getComment">
+    <view wx:for="{{ comments }}">
+      <view class="user-comment">
+        <view class="flex-box">
+          <view>
+            <i-avatar bindtap="viewOtherInfo" src="{{ item.commenter.userPortrait }}" size="large" shape="circle" data-userid="{{item.commenter.userId}}"></i-avatar>
+          </view>
+          <view class="flex-box" style="width: 80%">
+            <view>
+              <view>{{ item.commenter.userNickname }}</view>
+              <view>{{ item.postComment.postCommentTime }}</view>
+            </view>
+            <view class="commentIndex">#{{ index + 1 }}</view>
+          </view>
+        </view>
+        <view class="comment-content">
+          <view>
+            {{ item.postComment.postCommentContent }}
+          </view>
+        </view>
+        <view class="flex-box">
+          <view class="comment-operation" data-idx="{{ index }}" bindtap="likeComment" data-commentid="{{ item.postComment.postCommentId }}">
+            <view wx:if="{{ item.isLike }}" >
+              <i-icon type="praise_fill" size="30" color="#80848f"/>
+              {{ item.postComment.postCommentLike }}
+            </view>
+            <view wx:else>
+              <i-icon type="praise" size="30"/>
+              {{ item.postComment.postCommentLike }}
+            </view>
+          </view>  
+          <view class="comment-operation" bindtap="viewResponse" data-idx="{{ index }}" data-commentid="{{ item.postComment.postCommentId }}">
+            <i-icon type="message" size="30"/>
+            {{ item.postComment.postCommentResponse }}
+          </view>
+        </view>
+        
+        <view class="line-heng"/>
+      </view>
+    </view>
+  </scroll-view>
+  <view wx:if="{{show}}">
+    <i-grid-item i-class="item">
+          <i-spin custom>
+              <i-icon type="refresh" size="20" i-class="icon-load"></i-icon>
+              <view>Loading</view>
+          </i-spin>
+    </i-grid-item>
+  </view>
+</view>
+
+<view class="line-heng-fixed"/>
+
+<view class="commentInput">
+  <view class="fan-box">
+    <view class="flex-box">
+      <view class="fan-inner-box"  style="width:70%">
+        <input class="weui-input" bindconfirm="comment" bindinput="getInput" value="{{commentInput}}" placeholder="说点什么吧"/>
+      </view>
+      <view class="fan-inner-box"  style="width:25%">
+        <button class="flex-box" max-length="120" focus="false" adjust-position="true" bindtap="comment" style="width: 100%;height: 80%">发布</button>
+      </view>
+    </view>
+  </view>
+</view>

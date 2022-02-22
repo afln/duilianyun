@@ -1,0 +1,38 @@
+<view class="classify">
+ 
+  <!--分类导航栏-->
+  <scroll-view class='left-navbar' scroll-y="true">
+    <view wx:for="{{coupletTypes}}" class="{{currentTypeId == item.coupletTypeId ? 'active' : '' }}" wx:key="unique" bindtap="{{ currentTypeId != item.coupletTypeId ? 'navbarTap':'active' }}" data-currenttypeid="{{item.coupletTypeId}}">{{item.coupletType}}
+    </view>
+  </scroll-view>
+
+    <scroll-view class='top-navbar' scroll-x="true">
+      <view wx:for="{{coupletTypesItems}}" class="{{currentTypeIdItem == item.coupletType ? 'activeitem' : 'flase_active' }}"  wx:key="key" bindtap="{{ currentTypeIdItem != item.coupletType ? 'leftbarTap':'active' }}" data-currenttypeid="{{item.coupletType}}">
+      {{item.coupletType}}
+    </view>
+  </scroll-view>
+ <!--右侧楹联列表-->
+  <scroll-view class="item-navbar" id="right" scroll-y="true" scroll-top="{{scrollTop}}" bindscrolltolower="getCoupletByType">
+    <view wx:for="{{couplets}}" class="couplets_list"> 
+        <view bindtap="coupletDetail" class="couplets_type" data-coupletid="{{item.coupletId}}">
+          <view class="upcouplets">
+            <view class="type">上联</view>
+            <view class="up">{{item.coupletUp}}</view>
+          </view>
+
+          <view class="upcouplets">
+            <view class="type">下联</view>
+            <view class="up">{{item.coupletDown}}</view>
+          </view>
+        </view>
+      </view>
+  </scroll-view>
+  <view wx:if="{{show}}">
+    <i-grid-item i-class="item">
+      <i-spin custom>
+        <i-icon type="refresh" size="20" i-class="icon-load"></i-icon>
+        <view>Loading</view>
+      </i-spin>
+    </i-grid-item>
+  </view>
+</view>

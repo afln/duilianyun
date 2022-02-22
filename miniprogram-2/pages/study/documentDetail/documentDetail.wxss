@@ -1,0 +1,193 @@
+/* pages/study/documentDetail/documentDetail.wxss */
+.flex-box{
+  display: flex;
+}
+
+.flex-center{
+  justify-content: center;
+}
+
+.flex-between{
+  justify-content: space-around;
+}
+
+.data-img{
+  margin-top: 50rpx;
+  margin-left: 80rpx;
+  background: rgb(126, 119, 119);
+  border-radius: 15%;
+  width: 200rpx;
+  height: 280rpx;
+}
+
+.data-box{
+  margin-top: 50rpx;
+  margin-left: 50rpx;
+  width: 340rpx;
+}
+
+.data-name{
+  margin-top: 20rpx;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.data-intro{
+  margin-top: 30rpx;
+  font-weight: 500;
+  font-size: 0.7em;
+}
+
+.button-box{
+  margin-top: 40rpx;
+}
+
+.button-in{
+  display: flex;
+  width: 230rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  background-color: #409EFF;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-read{
+  display: flex;
+  width: 230rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  background-color: #67C23A;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-txt{
+  color: white;
+  font-size: 0.95em;
+}
+
+.star-img{
+  margin-top: 10rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.score-box{
+  align-items: center;
+  justify-content: center;
+  margin-top: 30rpx;
+  width: 600rpx;
+  height: 100rpx;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+  margin-left: 70rpx;
+}
+
+.comment-box{
+  margin-top: 30rpx;
+  min-height: calc(100vh - 620rpx);
+  width: 600rpx;
+  margin-left: 70rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+}
+
+.comment-title{
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  height: 60rpx;
+  padding-left: 30rpx;
+  padding-top: 10rpx;
+  border-bottom: 1rpx solid #DCDFE6;
+  background: #67C23A;
+}
+
+.star-img-s{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.user-img{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+}
+
+.user-box{
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}
+
+.name-box{
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+  width: 300rpx;
+}
+
+.time{
+  font-size: 0.65em;
+  margin-top: 10rpx;
+  color: #909399;
+}
+
+.name{
+  font-size: 0.9em;
+}
+
+.comment{
+  margin-top: 15rpx;
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+  margin-bottom: 15rpx;
+  width: 500rpx;
+  word-break:break-all;
+  font-size: 0.9em;
+}
+
+.comment-inner-box{
+  border-bottom: 1rpx solid #DCDFE6;
+}
+
+.input-inner{
+  font-size:0.8em;
+  padding-left: 30rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  height: 60rpx;
+}
+
+.submit{
+  padding-left:20rpx; 
+  border-bottom: 1rpx solid #DCDFE6;
+}
+
+.button-submit{
+  display: flex;
+  width: 150rpx;
+  height: 60rpx;
+  border-radius: 10rpx;
+  background-color: #409EFF;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.button-sub-txt{
+  font-size:0.9em;
+  color: white;
+}
+
+.star-box{
+  width: 400rpx;
+}
+
+.point-txt{
+  font-size:0.9em;
+  margin-right: 10rpx;
+}
+
+.myComment_view_hide{
+  display: none;
+}
+

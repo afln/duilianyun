@@ -1,0 +1,82 @@
+<!--pages/myInfo/collection/collection.wxml-->
+<van-tabs active="{{ current }}" bind:change="onChange" swipeable animated lazy-render="false">
+  <van-tab title="收藏楹联" name="couplet">
+    <scroll-view scroll-y="true" style="height: 100%; width: 100%; display: flex; flex-direction: column; ;margin-bottom:10rpx;">
+      <view wx:for="{{ couplets }}" class="couplets_list"> 
+        <view bindtap="coupletDetail" class="couplets_type" data-coupletid="{{item.couplet.coupletId}}">
+          <view class="upcouplets">
+            <view class="type">上联</view>
+            <view class="up">{{item.couplet.coupletUp}}</view>
+          </view>
+
+          <view class="upcouplets">
+            <view class="type">下联</view>
+            <view class="up">{{item.couplet.coupletDown}}</view>
+          </view>
+
+          <view>收藏时间：{{item.coupletCollection.coupletCollectionTime}}</view>
+          <view class="line-heng"></view>
+        </view>
+      </view>
+    </scroll-view>
+  </van-tab>
+  <van-tab title="收藏帖子" name="post">
+    <scroll-view scroll-y="true" class="container" enable-flex="true">
+      <block wx:for="{{posts}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+        <view class="feedItem" bindtap="showPostDetail" data-postid="{{item.post.postId}}">
+          <view class="fee">
+            <view class="feedSource">
+              <a class="">
+                <view class="avatar">
+                  <image src="{{item.user.userPortrait}}"></image>
+                </view>
+                <text>{{item.user.userNickname}}</text>
+              </a>
+            </view>
+            <view class="cloud">
+              <van-image
+                width="89"
+                height="19"
+                fit="contain"
+                src="../../static/images/post/cloud.png"
+              />
+            </view>
+          </view>
+          <view class="feedContent">
+            <view class="show">
+              <view class="question">
+                <view class="label">
+                  <text>【{{ item.postType.postType }}】</text>
+                </view>
+              </view>
+              <view class="question">
+                <view class="questionLink">
+                  <text>{{item.post.postTitle}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="answerBody">
+              <view class="answerTxt">
+                <text>{{item.post.postContent}}</text>
+              </view>
+              <view class="answerActions">
+                <view class="like dot">
+                  <a>{{item.post.postLike}} 点赞 </a>
+                </view>
+                <view class="comments dot">
+                  <a>{{item.post.postComment}} 评论 </a>
+                </view>
+                <view class="comments">
+                  <a>{{item.post.postBrow}} 浏览 </a>
+                </view>
+                <view class="postTime">
+                  <a>收藏时间：{{item.postCollect.postCollectTime}}</a>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </van-tab>
+</van-tabs>

@@ -1,0 +1,128 @@
+<van-tabs active="{{ current }}" bind:change="onChange" swipeable animated lazy-render="false">
+  <van-tab title="关注" name="attention">
+    <scroll-view scroll-y="true" class="container" enable-flex="true">
+      <block wx:for="{{attentions}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+        <view class="feedItem" bindtap="showPostDetail" data-postid="{{item.post.postId}}">
+          <view class="fee">
+            <view class="feedSource">
+              <a class="">
+                <view class="avatar">
+                  <image src="{{item.author.userPortrait}}"></image>
+                </view>
+                <text>{{item.author.userNickname}}</text>
+              </a>
+            </view>
+            <view class="cloud">
+              <van-image
+                width="89"
+                height="19"
+                fit="contain"
+                src="../../static/images/post/cloud.png"
+              />
+            </view>
+          </view>
+          <view class="feedContent">
+            <view class="show">
+              <view class="question">
+                <view class="label">
+                  <text>【{{ item.postType.postType }}】</text>
+                </view>
+              </view>
+              <view class="question">
+                <view class="questionLink">
+                  <text>{{item.post.postTitle}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="answerBody">
+              <view class="answerTxt">
+                <text>{{item.post.postContent}}</text>
+              </view>
+              <view class="answerActions">
+                <view class="like dot">
+                  <a>{{item.post.postLike}} 点赞 </a>
+                </view>
+                <view class="comments dot">
+                  <a>{{item.post.postComment}} 评论 </a>
+                </view>
+                <view class="comments">
+                  <a>{{item.post.postBrow}} 浏览 </a>
+                </view>
+                <view class="postTime">
+                  <a>{{item.post.postTime}}</a>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </van-tab>
+  <van-tab title="最新" name="new">
+    <scroll-view scroll-y="true" class="container" enable-flex="true">
+    <block wx:for="{{news}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+      <view class="feedItem" bindtap="showPostDetail" data-postid="{{item.post.postId}}">
+        <view class="fee">
+          <view class="feedSource">
+            <a class="">
+              <view class="avatar">
+                <image src="{{item.author.userPortrait}}"></image>
+              </view>
+              <text>{{item.author.userNickname}}</text>
+            </a>
+          </view>
+          <view class="cloud">
+            <van-image
+              width="89"
+              height="19"
+              fit="contain"
+              src="../../static/images/post/cloud.png"
+            />
+          </view>
+        </view>
+        <view class="feedContent">
+          <view class="show">
+            <view class="question">
+              <view class="label">
+                <text>【{{ item.postType.postType }}】</text>
+              </view>
+            </view>
+            <view class="question">
+              <view class="questionLink">
+                <text>{{item.post.postTitle}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="answerBody">
+            <view class="answerTxt">
+              <text>{{item.post.postContent}}</text>
+            </view>
+            <view class="answerActions">
+              <view class="like dot">
+                <a>{{item.post.postLike}} 点赞 </a>
+              </view>
+              <view class="comments dot">
+                <a>{{item.post.postComment}} 评论 </a>
+              </view>
+              <view class="comments">
+                <a>{{item.post.postBrow}} 浏览 </a>
+              </view>
+              <view class="postTime">
+                <a>{{item.post.postTime}}</a>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+  </van-tab>
+</van-tabs>
+<view wx:if="{{show}}">
+    <i-grid-item i-class="item">
+          <i-spin custom>
+              <i-icon type="refresh" size="20" i-class="icon-load"></i-icon>
+              <view>Loading</view>
+          </i-spin>
+    </i-grid-item>
+  </view>

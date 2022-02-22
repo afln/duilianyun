@@ -1,0 +1,21 @@
+<!--pages/myInfo/introduction/introduction.wxml-->
+<view class="container">
+    <view style="text-align: center;display:flex;flex-direction:column;margin-bottom:10px;">
+      <image class="avatar-img" src="{{introduction.userPortrait}}"/>
+      <text class="nickname">{{introduction.userNickname}}</text>
+    </view>
+    <view class="item_con">
+      <text class="text_con">姓名:</text>
+      <input value="{{introduction.userName}}" class="{{!introduction.modifyCount? 'input_con' :'input_conBlack'}}"  bindblur="{{!introduction.modifyCount? 'change_value' :''}} "data-sum="userName"></input>
+    </view>
+    <view class="item_con">
+      <text class="text_con">电话:</text>
+      <input value="{{introduction.userPhone}}" class="input_con" bindblur="change_value" data-sum="userPhone"></input>
+    </view>
+    <view class="item_con">
+      <text class="text_con">邮箱:</text>
+      <input value="{{introduction.userEmail}}" class="input_con" bindblur="change_value" data-sum="userEmail"></input>
+    </view>
+      <text class="text_con1">个人简介:</text>
+      <textarea value="{{introduction.userIntroduction}}" class="textarea_con" bindblur="change_value" data-sum="userIntroduction"></textarea>
+</view>

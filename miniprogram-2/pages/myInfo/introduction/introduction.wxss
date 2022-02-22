@@ -1,0 +1,74 @@
+/* pages/myInfo/introduction/introduction.wxss */
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #ffffff;
+}
+.avatar-img {
+  width: 80px;
+  height: 80px;
+  margin-top: 8px;
+}
+.nickname{
+  font-size: 16px;
+  margin-top: 20px;
+}
+.item_con{
+  display: flex;
+  justify-content: space-between;
+  width: 94%;
+  margin:3px auto;
+}
+.text_con{
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b8686;
+  width: 30%;
+  margin-left: 5%;
+}
+.text_con1{
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b8686;
+  width: 95%;
+  margin-left: 5%;
+}
+.input_con{
+  font-size: 18px;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #8b8686;
+  width: 65%;
+  padding: 5px 10px;
+}
+.input_conBlack{
+  font-size: 18px;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #8b8686;
+  width: 65%;
+  padding: 5px 10px;
+  background-color: #a29f9f;
+  
+}
+.textarea_con{
+  margin-top: 10px;
+  width: 90%;
+  font-size: 18px;
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #8b8686;
+  padding: 8px 8px;
+}
+.inputview{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  padding-right: 20px;
+  margin-top: 10px;
+}

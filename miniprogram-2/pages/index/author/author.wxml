@@ -1,0 +1,19 @@
+<!--pages/index/author/author.wxml-->
+<view>{{ author.authorName }}</view>
+<view>{{ author.authorIntroduction }}</view>
+<van-divider />
+<view style="background-color: rgb(235,235 , 235);">
+  <view wx:for="{{couplets}}" class="couplets_list"> 
+    <view bindtap="coupletDetail" class="couplets_type" data-coupletid="{{item.coupletId}}">
+      <view class="upcouplets">
+        <view class="type">上联</view>
+        <view class="up">{{item.coupletUp}}</view>
+      </view>
+
+      <view class="upcouplets">
+        <view class="type">下联</view>
+        <view class="up">{{item.coupletDown}}</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+/* pages/study/documentDetail/openPicture/openPicture.wxss */
+.picture{
+  width: 100%;
+}

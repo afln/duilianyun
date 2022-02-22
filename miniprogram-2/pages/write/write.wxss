@@ -1,0 +1,95 @@
+.write{
+  font-size: 20px;
+}
+.select{
+  width: 95%;
+  margin: 20rpx;
+  background-color:  #fafafa;
+  border-radius: 20rpx;
+}
+
+.selectTitle{
+  background-color:  #fafafa;
+}
+
+.flex-box{
+  display: flex;
+}
+
+.flex-center{
+  justify-content: center;
+  align-items: center;
+}
+
+.fan-box{
+  margin-left: 60rpx;
+  margin-top: 10rpx;
+}
+
+.container {
+  padding: 0;
+  width: 100%;
+  height: 80%;
+  background-color: #fff;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.title {
+  margin-top: 2%;
+  width: 92%;
+  text-align: left;
+  height: 70rpx;
+  font-size: 36rpx;
+  font-weight: 500;
+  padding-top: 22rpx;
+  padding-left: 20rpx;
+  color: rgb(71, 69, 69);
+  background-color: #fafafa;
+  border-radius: 10px;
+}
+
+.row {
+  flex: 1;
+  display: flex;
+  width: 92%;
+  height: 10%;
+  margin-top: 10rpx;
+  padding-left: 20rpx;
+  overflow: hidden;
+  background-color: #fafafa;
+  border-radius: 10px;
+}
+
+.row .text {
+  flex: 1;
+  padding-top: 20rpx;
+  width: 90%;
+  height: 80px;
+  font-size: 17.8px;
+  font-weight: 480;
+  line-height: 26px;
+  color: rgb(71, 69, 69);
+}
+
+.bottom {
+  width: 60%;
+  background: #fff;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  padding-right: 3px;
+  padding-left: 4px;
+}
+
+
+.btn{
+  padding: 0px;
+  background-color:rgb(201, 49, 49);
+  margin-top: 90rpx;
+  width: 300rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: rgb(252, 252, 252);
+}

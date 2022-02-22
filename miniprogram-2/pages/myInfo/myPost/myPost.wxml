@@ -1,0 +1,59 @@
+<!--pages/myInfo/myPost/myPost.wxml-->
+<view class="container">
+  <block wx:for="{{posts}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+    <view class="feedItem" bindtap="showPostDetail" data-postid="{{item.post.postId}}">
+      <view class="fee">
+        <view class="feedSource">
+          <a class="">
+            <view class="avatar">
+              <image src="{{item.author.userPortrait}}"></image>
+            </view>
+            <text>{{item.author.userNickname}}</text>
+          </a>
+        </view>
+        <view class="cloud">
+          <van-image
+            width="89"
+            height="19"
+            fit="contain"
+            src="../../static/images/post/cloud.png"
+          />
+        </view>
+      </view>
+      <view class="feedContent">
+        <view class="show">
+          <view class="question">
+            <view class="label">
+              <text>【{{ item.postType.postType }}】</text>
+            </view>
+          </view>
+          <view class="question">
+            <view class="questionLink">
+              <text>{{item.post.postTitle}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="answerBody">
+          <view class="answerTxt">
+            <text>{{item.post.postContent}}</text>
+          </view>
+          <view class="answerActions">
+            <view class="like dot">
+              <a>{{item.post.postLike}} 点赞 </a>
+            </view>
+            <view class="comments dot">
+              <a>{{item.post.postComment}} 评论 </a>
+            </view>
+            <view class="comments">
+              <a>{{item.post.postBrow}} 浏览 </a>
+            </view>
+            <view class="postTime">
+              <a>发布时间：{{item.post.postTime}}</a>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+

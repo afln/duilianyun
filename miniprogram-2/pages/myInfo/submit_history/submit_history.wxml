@@ -1,0 +1,48 @@
+<van-tabs active="{{ current }}" bind:change="onChange" swipeable animated lazy-render="false">
+	<van-tab title="已保存草稿" name="new">
+		<form reportSubmit bindsubmit="submitFormId">
+			<view wx:for="{{newDocuments}}" class="contanier">
+				<text class="title"  bindtap="getSubmit" data-manuscriptId="{{item.manuscript.manuscriptId}}">{{item.competition.competitionName}}</text>
+				<view class="itemContainer" >
+					<view class="NameItem"  bindtap="getSubmit" data-manuscriptId="{{item.manuscript.manuscriptId}}">
+						<text class="Name">{{item.manuscript.manuscriptTitle}}</text>
+						<text class="Name">{{item.manuscript.competitionId}}</text>
+						<text class="Name">{{item.manuscript.updateTime}}</text>
+						<view wx:if="{{item.manuscript.status=='0'}}" class="title1">可修改</view>
+						<view wx:elif="{{item.manuscript.status=='1'}}" class="NOShen">已删除</view>
+						<view wx:elif="{{item.manuscript.status=='2'}}" class="NOShen">未审核</view>
+						<view wx:elif="{{item.manuscript.status=='3'}}" class="title1">审核通过</view>
+						<view wx:elif="{{item.manuscript.status=='4'}}" class="title1">审核未通过</view>
+					</view>
+					<view class="NameItem">
+						<iconClick  id="iconClick" iconA="/static/tabs/submit.png" iconB="/static/tabs/change.png" iconC="/static/tabs/delete.png" bind:clickA="_clickA" bind:clickB="_clickB" bind:clickC="_clickC" data-manuscriptid="{{item.manuscript.manuscriptId}}">
+						</iconClick>
+					</view>
+				</view>
+			</view>
+		</form>
+	</van-tab>
+	<van-tab title="审核完成" name="history">
+		<form reportSubmit bindsubmit="submitFormId">
+			<view wx:for="{{historyDocuments}}" class="contanier">
+				<text class="title">{{item.competition.competitionName}}</text>
+				<view class="itemContainer">
+					<view class="NameItem">
+						<text class="Name">{{item.manuscript.manuscriptTitle}}</text>
+						<text class="Name">{{item.manuscript.competitionId}}</text>
+						<text class="Name">{{item.manuscript.updateTime}}</text>
+						<view wx:if="{{item.manuscript.status=='0'}}" class="title1">可修改</view>
+						<view wx:elif="{{item.manuscript.status=='1'}}" class="NOShen">已删除</view>
+						<view wx:elif="{{item.manuscript.status=='2'}}" class="NOShen">未审核</view>
+						<view wx:elif="{{item.manuscript.status=='3'}}" class="title1">审核通过</view>
+						<view wx:elif="{{item.manuscript.status=='4'}}" class="title1">审核未通过</view>
+					</view>
+					<view class="NameItem">
+						<iconClick id="iconClick" iconA="/static/tabs/submit.png" iconB="/static/tabs/change.png" iconC="/static/tabs/delete.png" bind:clickA="_clickA" bind:clickB="_clickB" bind:clickC="_clickC" data-manuscriptid="{{item.manuscript.manuscriptId}}">
+						</iconClick>
+					</view>
+				</view>
+			</view>
+		</form>
+	</van-tab>
+</van-tabs>

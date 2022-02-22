@@ -1,0 +1,2 @@
+<!--pages/study/documentDetail/openPicture/openPicture.wxml-->
+<image class="picture" src="{{ fileUrl }}"></image>

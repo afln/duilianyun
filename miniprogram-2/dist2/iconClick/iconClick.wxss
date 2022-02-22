@@ -1,0 +1,14 @@
+.img-plus-style {
+  height: 40rpx;
+  width: 40rpx;
+  bottom: 4%;
+  right: 5%;
+  z-index: 100;
+}
+.img-style {
+  height: 40rpx;
+  width: 40rpx;
+  bottom: 4%;
+  right: 5%;
+  opacity: 0;
+}

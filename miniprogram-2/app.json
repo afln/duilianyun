@@ -1,0 +1,130 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/search/search",
+    "pages/index/author/author",
+    "pages/post/post",
+    "pages/post/postDetail/postDetail",
+    "pages/write/write",
+    "pages/study/study",
+    "pages/study/documentDetail/documentDetail",
+    "pages/study/documentDetail/openVideo/openVideo",
+    "pages/study/documentDetail/openPicture/openPicture",
+    "pages/myInfo/myInfo",
+    "pages/myInfo/attentionandfans/attentionandfans",
+    "pages/myInfo/login/login",
+    "pages/myInfo/otherInfo/otherInfo",
+    "pages/index/couplet/coupletDetail",
+    "pages/index/moreType/moreType",
+    "pages/myInfo/collection/collection",
+    "pages/index/commentResponse/commentResponse",
+    "pages/myInfo/history/history",
+    "pages/myInfo/myPost/myPost",
+    "pages/myInfo/myBook/myBook",
+    "pages/post/commentResponse/commentResponse",
+    "pages/submit/submit",
+    "pages/myInfo/submit_history/submit_history",
+    "pages/switchcity/switchcity",
+    "pages/myInfo/introduction/introduction"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "backgroundColor": "#fafafa",
+    "selectedColor": "#333",
+    "borderStyle": "white",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tabs/home.png",
+        "selectedIconPath": "static/tabs/home-active.png"
+      },
+      {
+        "text": "帖子",
+        "pagePath": "pages/post/post",
+        "iconPath": "static/tabs/post.png",
+        "selectedIconPath": "static/tabs/post-active.png"
+      },
+      {
+        "text": "创作",
+        "pagePath": "pages/write/write",
+        "iconPath": "static/tabs/write.png",
+        "selectedIconPath": "static/tabs/write-active.png"
+      },
+      {
+        "text": "学习",
+        "pagePath": "pages/study/study",
+        "iconPath": "static/tabs/study.png",
+        "selectedIconPath": "static/tabs/study-active.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/myInfo/myInfo",
+        "iconPath": "static/tabs/person.png",
+        "selectedIconPath": "static/tabs/person-active.png"
+      }
+    ],
+    "items": [
+      {
+        "name": "首页",
+        "pagePath": "pages/index/index",
+        "icon": "static/tabs/home.png",
+        "activeIcon": "static/tabs/home-active.png"
+      },
+      {
+        "name": "帖子",
+        "pagePath": "pages/post/post",
+        "icon": "static/tabs/post.png",
+        "activeIcon": "static/tabs/post-active.png"
+      },
+      {
+        "name": "发帖",
+        "pagePath": "pages/write/write",
+        "icon": "static/tabs/write.png",
+        "activeIcon": "static/tabs/write-active.png"
+      },
+      {
+        "name": "学习",
+        "pagePath": "pages/study/study",
+        "icon": "static/tabs/study.png",
+        "activeIcon": "static/tabs/study-active.png"
+      },
+      {
+        "name": "我的",
+        "pagePath": "pages/myInfo/myInfo",
+        "icon": "static/tabs/person.png",
+        "activeIcon": "static/tabs/person-active.png"
+      }
+    ],
+    "position": "bottom"
+  },
+  "usingComponents": {
+    "i-tabs": "./dist/tabs/index",
+    "i-tab": "./dist/tab/index",
+    "i-card": "./dist/card/index",
+    "i-avatar": "./dist/avatar/index",
+    "i-button": "./dist/button/index",
+    "i-icon": "./dist/icon/index",
+    "i-spin": "./dist/spin/index",
+    "i-collapse": "./dist/collapse/index",
+    "i-collapse-item": "./dist/collapse-item/index",
+    "i-input": "./dist/input/index",
+    "van-dropdown-menu": "./dist2/dropdown-menu/index",
+    "van-dropdown-item": "./dist2/dropdown-item/index",
+    "van-divider": "./dist2/divider/index",
+    "van-tab": "./dist2/tab/index",
+    "van-tabs": "./dist2/tabs/index",
+    "van-image": "./dist2/image/index",
+    "van-loading": "./dist2/loading/index",
+    "van-search": "./dist2/search/index",
+    "van-rate": "./dist2/rate/index",
+    "van-icon": "./dist2/icon/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

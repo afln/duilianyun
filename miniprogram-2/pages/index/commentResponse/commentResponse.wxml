@@ -1,0 +1,79 @@
+<!--pages/index/commentResponse/commentResponse.wxml-->
+<view>
+  <view class="user-comment">
+    <view class="flex-box">
+      <view>
+        <i-avatar bindtap="viewOtherInfo" src="{{ comment.userDTO.userPortrait }}" size="large" shape="circle" data-userid="{{comment.userDTO.userId}}"></i-avatar>
+      </view>
+      <view>
+        <view>{{ comment.userDTO.userNickname }}</view>
+        <view>{{ comment.coupletComment.coupletCommentTime }}</view>
+      </view>
+    </view>
+    <view class="comment-content">
+      <view>
+        {{ comment.coupletComment.coupletCommentContent }}
+      </view>
+    </view>
+  </view>
+</view>
+<view class="line-heng"/>
+<view class="comment">
+    <scroll-view scroll-y="true" style="height: 100%; width: 100%; display: flex; flex-direction: column; ;margin-bottom:10rpx;" bindscrolltolower="getResponse">
+      <view wx:for="{{ responses }}">
+        <view class="user-comment">
+          <view class="flex-box">
+            <view>
+              <i-avatar bindtap="viewOtherInfo" src="{{ item.userDTO.userPortrait }}" size="large" shape="circle" data-userid="{{item.userDTO.userId}}"></i-avatar>
+            </view>
+            <view class="flex-box" style="width: 80%">
+              <view>
+                <view>{{ item.userDTO.userNickname }}</view>
+                <view>{{ item.coupletCommentResponse.coupletCommentResponseTime }}</view>
+              </view>
+              <view class="commentIndex">#{{ index + 1 }}</view>
+            </view>
+          </view>
+          <view class="comment-content">
+            <view>
+              {{ item.coupletCommentResponse.coupletCommentResponseConten }}
+            </view>
+          </view>
+          <view class="flex-box">
+            <view class="comment-operation" data-idx="{{ index }}" bindtap="likeResponse" data-responseid="{{ item.coupletCommentResponse.coupletCommentResponseId }}">
+              <view wx:if="{{ item.isLike }}" >
+                <i-icon type="praise_fill" size="30" color="#80848f"/>
+                {{ item.coupletCommentResponse.coupletCommentResponseLikes }}
+              </view>
+              <view wx:else>
+                <i-icon type="praise" size="30"/>
+                {{ item.coupletCommentResponse.coupletCommentResponseLikes }}
+              </view>
+            </view>  
+          </view>
+          <view class="line-heng"/>
+        </view>
+      </view>
+    </scroll-view>
+    <view wx:if="{{show}}">
+      <i-grid-item i-class="item">
+            <i-spin custom>
+                <i-icon type="refresh" size="20" i-class="icon-load"></i-icon>
+                <view>Loading</view>
+            </i-spin>
+      </i-grid-item>
+    </view>
+    <view class="line-heng-fixed"></view>
+    <view class="commentInput">
+      <view class="fan-box">
+        <view class="flex-box">
+          <view class="fan-inner-box"  style="width:70%">
+            <input class="weui-input" bindconfirm="response" bindinput="getInput" value="{{commentInput}}" placeholder="说点什么吧"/>
+          </view>
+          <view class="fan-inner-box"  style="width:25%">
+            <button class="flex-box" max-length="120" focus="false" adjust-position="true" bindtap="response" style="width: 100%;height: 80%">发布</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>

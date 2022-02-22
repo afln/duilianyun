@@ -1,0 +1,70 @@
+<!--pages/study/documentDetail/documentDetail.wxml-->
+<view>
+    <view class="flex-box">
+      <image class="data-img" wx:if="{{item.documentPicture.fileType!=undefiend}}" src="{{ serverUrl + documentPicture.fileType + '/' + documentPicture.fileId + '.' + documentPicture.fileType}}"></image>
+      <image class="data-img" wx:if="{{item.documentPicture.fileType==undefiend}}" src="{{ serverUrl + 'default.jpg'}}" style="width:160rpx;height:200rpx;"></image>
+      <view class="data-box">
+        <view class="data-name">{{ document.documentName}}</view>
+        <view class="data-intro">资料简介：{{ document.documentIntroduction }}</view>
+      </view>
+    </view>
+
+  <view class="flex-box flex-between button-box">
+    <view wx:if="{{ !isCollect }}">
+      <view class="button-in" bindtap="collectDocument"><p class="button-txt">加入书架</p></view>
+    </view>
+    <view wx:if="{{ isCollect }}">
+      <view class="button-in" bindtap="cancelCollectDocument"><p class="button-txt">取消收藏</p></view>
+    </view>
+    <view class="button-read" bindtap="openFile"><p class="button-txt">阅读文件</p></view>
+  </view>
+
+  <view class="score-box flex-box">
+    <view class="flex-box" wx:if="{{ document.documentComment!=0 }}">
+      <view class="point-txt">综合评分({{ document.documentScore/document.documentComment }}):</view>
+      <van-rate value="{{ document.documentScore/document.documentComment }}" readonly size="26"/>
+    </view>
+    <view wx:if="{{ document.documentComment==0 }}">
+      <view class="point-txt">综合评分:暂无评分</view>
+    </view>
+  </view>
+  
+  <view class="comment-box">
+    <view class="comment-title"  wx:if='{{open==true}}' bindtap="commetToggle"><p class="button-txt">填写评论</p></view>
+    <view class="comment-title"  wx:if='{{open==false}}' bindtap="commetToggle"><p class="button-txt">我要评论</p></view>
+    <view class="comment-inner-box {{!open ? 'myComment_view_hide' : ''}}">
+      <view class="user-box flex-box">
+        <image class="user-img" src="{{userInfo.userPortrait}}"></image>
+        <view class="name-box">
+          <view class="name">{{userInfo.userNickname}}</view>
+        </view>
+        <view class="time">{{myComment.documentCommentTime==null?'':myComment.documentCommentTime}}</view>
+      </view>
+      <textarea class="input-inner comment"  value="{{ myComment.documentCommentContent }}" bindinput="getInput"  placeholder="请输入您的建议或意见" name="textarea"/>
+      <view class="flex-box submit">
+        <view class="star-box">
+          <van-rate value="{{ myComment.documentCommentScore }}" bind:change="onChange" size="26"/>
+        </view>
+        <view class="button-submit" bindtap="commentDocument"><p class="button-sub-txt">确定</p></view>
+      </view>
+    </view>
+
+    <view wx:for='{{comment}}'>
+      <view class="comment-inner-box">
+        <view class="user-box flex-box">
+          <image class="user-img" src="{{item.commenter.userPortrait}}"></image>
+          <view class="name-box">
+            <view class="name">{{item.commenter.userNickname}}</view>
+            <view class="flex-box">
+              <view class="star-box">
+                <van-rate value="{{ item.documentComment.documentCommentScore }}" readonly size="20"/>
+              </view>
+            </view>
+          </view>
+          <view class="time">{{item.documentComment.documentCommentTime}}</view>
+        </view>
+        <view class="comment">{{item.documentComment.documentCommentContent}}</view>
+      </view>
+    </view>
+  </view>
+</view>

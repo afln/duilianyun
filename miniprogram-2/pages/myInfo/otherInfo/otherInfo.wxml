@@ -1,0 +1,124 @@
+<!--pages/test/test.wxml-->
+<view>
+  <image class="top-img" src="../../../static/images/myInfo/otherInfo-background.jpg"></image>
+  <view class="flex-box">
+    <image class="user-img" src="{{otherInfo.userPortrait}}"></image>
+    <view class="fan-box">
+      <view class="flex-box">
+        <view class="fan-inner-box">
+          <view class="flex-box flex-center">
+            <view class="fan-number">{{otherInfo.userFans}}</view>
+          </view>
+          <view class="flex-box flex-center">
+            <view class="fan-title">粉丝</view>
+          </view>
+        </view>
+        <view class="line-shu"></view>
+        <view class="fan-inner-box">
+          <view class="flex-box flex-center">
+            <view class="fan-number">{{otherInfo.userAttentions}}</view>
+          </view>
+          <view class="flex-box flex-center">
+            <view class="fan-title">关注</view>
+          </view>
+        </view>
+        <view class="line-shu"></view>
+        <view class="fan-inner-box">
+          <view class="flex-box flex-center">
+            <view class="fan-number">{{otherInfo.userPosts}}</view>
+          </view>
+          <view class="flex-box flex-center">
+            <view class="fan-title">帖子</view>
+          </view>
+        </view>
+      </view>
+      
+      <i-button bind:click="handleClick" style="padding:0" type="{{buttonType}}" loading="{{buttonLoading}}">
+        <view class="button-center">
+          {{buttonContent}}
+        </view>
+      </i-button>
+      <!--<button class="button" bindtap="attention">{{buttonContent}}</button>-->
+    </view>
+  </view>
+  <view class="user-name">{{otherInfo.userNickname}}</view>
+  <view class="line-heng"></view>
+  <van-tabs active="{{ current }}" bind:change="onChange" swipeable animated lazy-render="false">
+    <van-tab title="帖子" name="posts">
+      <view class="container">
+        <block wx:for="{{posts}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+          <view class="feedItem" bindtap="showPostDetail" data-postid="{{item.post.postId}}">
+            <view class="fee">
+              <view class="feedSource">
+                <a class="">
+                  <view class="avatar">
+                    <image src="{{item.author.userPortrait}}"></image>
+                  </view>
+                  <text>{{item.author.userNickname}}</text>
+                </a>
+              </view>
+              <view class="cloud">
+                <van-image
+                  width="89"
+                  height="19"
+                  fit="contain"
+                  src="../../static/images/post/cloud.png"
+                />
+              </view>
+            </view>
+            <view class="feedContent">
+              <view class="show">
+                <view class="question">
+                  <view class="label">
+                    <text>{{ item.postType.postType }}</text>
+                  </view>
+                </view>
+                <view class="question">
+                  <view class="questionLink">
+                    <text>{{item.post.postTitle}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class="answerBody">
+                <view class="answerTxt">
+                  <text>{{item.post.postContent}}</text>
+                </view>
+                <view class="answerActions">
+                  <view class="like dot">
+                    <a>{{item.post.postLike}} 点赞 </a>
+                  </view>
+                  <view class="comments dot">
+                    <a>{{item.post.postComment}} 评论 </a>
+                  </view>
+                  <view class="comments">
+                    <a>{{item.post.postBrow}} 浏览 </a>
+                  </view>
+                  <view class="postTime">
+                    <a>发布时间：{{item.post.postTime}}</a>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </van-tab>
+      <van-tab title="楹联" name="couplets">
+        <view style="background-color: rgb(235,235 , 235);">
+          <view wx:for="{{couplets}}" class="couplets_list"> 
+            <view bindtap="coupletDetail" class="couplets_type" data-coupletid="{{item.coupletId}}">
+              <view class="upcouplets">
+                <view class="type">上联</view>
+                <view class="up">{{item.coupletUp}}</view>
+              </view>
+
+              <view class="upcouplets">
+                <view class="type">下联</view>
+                <view class="up">{{item.coupletDown}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </van-tab>
+  </van-tabs>
+</view>

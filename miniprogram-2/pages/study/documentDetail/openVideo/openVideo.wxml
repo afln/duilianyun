@@ -1,0 +1,2 @@
+<!--pages/study/documentDetail/openVideo/openVideo.wxml-->
+<video class="video" src="{{ fileUrl }}"></video>

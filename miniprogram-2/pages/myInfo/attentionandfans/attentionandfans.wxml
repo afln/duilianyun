@@ -1,0 +1,36 @@
+<view style="height:100vh">
+<van-tabs active="{{ current }}" bind:change="onChange" swipeable animated lazy-render="false">
+  <van-tab title="我的关注 {{ attentions.length }}" name="attention">
+    <view  style="height:100%">
+      <view wx:for="{{ attentions }}">
+        <view class="container more">
+          <view class="user flex-wrp" bindtap="viewOtherInfo" data-userid="{{item.userId}}">
+            <view class="avatar flex-item">
+              <image class="userinfo-avatar" src="{{item.userPortrait}}" background-size="cover"></image>
+            </view>
+            <view class="user-info flex-item">
+              <text class="userinfo-nickname">{{item.userNickname}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="我的粉丝 {{ fans.length }}" name="fans">
+    <view style="height:100%">
+      <view wx:for="{{ fans }}">
+        <view class="container more">
+          <view class="user flex-wrp" bindtap="viewOtherInfo" data-userid="{{item.userId}}">
+            <view class="avatar flex-item">
+              <image class="userinfo-avatar" src="{{item.userPortrait}}" background-size="cover"></image>
+            </view>
+            <view class="user-info flex-item">
+              <text class="userinfo-nickname">{{item.userNickname}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>
+</view>

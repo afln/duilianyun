@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "picker-dev": "../../dist2/picker-column/index"
+  },
+  "navigationBarTitleText": "首页",
+  "enablePullDownRefresh": true
+}

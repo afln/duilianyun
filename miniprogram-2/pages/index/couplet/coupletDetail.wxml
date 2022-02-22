@@ -1,0 +1,196 @@
+<!--pages/index/couplet/coupletDetail.wxml-->
+<view>
+  <scroll-view class="coupletTitle" scroll-x="true">
+    {{ couplet.coupletTitle }}
+  </scroll-view>
+
+  <view class="couplets_type">
+    <view class="upcouplets">
+      <view class="type">
+      <view class="information" catchtap="bindAuthor"><text class="information_test1">作者:</text><text class="information_test">{{author.authorName}}</text></view>
+      <view class="information"><text class="information_test1">朝代:</text><text class="information_test">{{couplet.coupletDate}}</text></view>
+      <view class="information"><text class="information_test1">类别:</text><text class="information_test">{{coupletType.coupletType}}</text></view>
+      </view>
+      <view class="line"></view>
+      <view class="up">{{ couplet.coupletUp }}</view>
+      <view class="up">{{ couplet.coupletDown }}</view>
+    </view>
+
+    <!-- <view class="upcouplets">
+      <view class="type">
+      <view class="information"><text class="information_test1">作者:</text><text class="information_test">{{downAuthor.authorName}}</text></view>
+      <view class="information"><text class="information_test1">朝代:</text><text class="information_test">{{downAuthor.authorDate}}</text></view>
+      <view class="information"><text class="information_test1">类别:</text><text class="information_test">{{downAuthor.authorDate}}</text></view>
+      </view>
+      <view class="line"></view>
+      <view class="up">{{ couplet.coupletDown }}</view>
+    </view> -->
+  </view>
+
+  <!-- <view class="coupletAuthor" wx:if="{{upAuthor.authorId}} == {{downAuthor.authorId}}">
+    ——{{upAuthor.authorName}}
+  </view>
+
+  <view class="coupletAuthor" wx:else>
+    ——上联：{{upAuthor.authorName}}
+    ——下联：{{downAuthor.authorName}}
+  </view> -->
+</view>
+<view class="line-heng"></view>
+<van-tabs active="{{ current }}" bind:change="onChange" swipeable animated lazy-render="false">
+  <van-tab title="注释" name="introduction">
+    <view wx:if="{{ author.authorUser!=null }}">
+      <view class="flex-box">
+        <view style="height: 40px ;line-height:40px">作者的账户：</view>
+        <view>
+          <i-avatar bindtap="viewOtherInfo" src="{{ authorUser.userPortrait }}" size="large" shape="circle" data-userid="{{authorUser.userId}}"></i-avatar>
+        </view>
+        <view>{{ authorUser.userNickname }}</view>
+        <view wx:if="{{ author.authorId != downAuthor.authorId }}">
+          <view class="flex-box">
+            <view>
+              <i-avatar bindtap="viewOtherInfo" src="{{ downAuthorUser.userPortrait }}" size="large" shape="circle" data-userid="{{downAuthorUser.userId}}"></i-avatar>
+            </view>
+            <view>{{ downAuthorUser.userNickname }}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="introduction">
+      <i-collapse>
+        <i-collapse-item title="{{upAuthor.authorName}}">
+          <view slot="content" i-class-content="green-text">
+              {{author.authorIntroduction}}
+          </view>
+        </i-collapse-item>
+        <!-- <view wx:if="{{upAuthor.authorId != downAuthor.authorId}}">
+          <i-collapse-item title="{{downAuthor.authorName}}">
+            <view slot="content" i-class-content="green-text">
+                {{downAuthor.authorIntroduction}}
+            </view>
+          </i-collapse-item>
+        </view> -->
+      </i-collapse>
+    </view>
+
+    <view class="line-heng"></view>
+    <view class="operation">
+      <view class="fan-box">
+        <view class="flex-box">
+          <!-- 点赞按钮 -->
+          <view class="fan-inner-box" bindtap="like">
+            <view class="flex-box flex-center">
+              <view class="like" wx:if="{{isLike}}">
+                <i-icon type="like_fill" size="40" color="#80848f"/>
+              </view>
+              <view class="like" wx:elif="{{isLike == false}}">
+                <i-icon type="like" size="40"/>
+              </view>
+            </view>
+            <view class="flex-box flex-center">
+              <view class="fan-title">{{ couplet.coupletLike }}</view>
+            </view>
+          </view>
+          <!-- 收藏按钮 -->
+          <view class="fan-inner-box" bindtap="collect">
+            <view class="flex-box flex-center">
+              <view class="collection" wx:if="{{isCollection}}">
+                <i-icon type="collection_fill" color="#80848f" size="40"/>
+              </view>
+              <view class="collection" wx:elif="{{isCollection == false}}">
+                <i-icon type="collection" size="40"/>
+              </view>
+            </view>
+            <view class="flex-box flex-center">
+              <view class="fan-title">{{ couplet.coupletCollect }}</view>
+            </view>
+          </view>
+          <!-- 浏览量 -->
+          <view class="fan-inner-box">
+            <view class="flex-box flex-center">
+              <i-icon type="browse_fill" size="40"/>
+            </view>
+            <view class="flex-box flex-center">
+              <view class="fan-title">{{couplet.coupletBrowse}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="line-heng"></view>
+    <view class="moreWork" bindtap="viewAuthor" data-current="up">查看更多{{ author.authorName }}的作品</view>
+    <view wx:if="{{upAuthor.authorId != downAuthor.authorId}}">
+      <view class="moreWork" bindtap="viewAuthor" data-current="down">查看更多{{ author.authorName }}的作品</view>
+    </view>
+  </van-tab>
+  <van-tab title="赏析" name="appreciation">
+  </van-tab>
+  <van-tab title="评论 {{ couplet.coupletComments }}" name="comment">
+    <view class="comment">
+      <scroll-view scroll-y="true" style="height: 100%; width: 100%; display: flex; flex-direction: column; ;margin-bottom:10rpx;" bindscrolltolower="getComment">
+        <view wx:for="{{ comments }}">
+          <view class="user-comment">
+            <view class="flex-box">
+              <view>
+                <i-avatar bindtap="viewOtherInfo" src="{{ item.userDTO.userPortrait }}" size="large" shape="circle" data-userid="{{item.userDTO.userId}}"></i-avatar>
+              </view>
+              <view class="flex-box" style="width: 80%">
+                <view>
+                  <view>{{ item.userDTO.userNickname }}</view>
+                  <view>{{ item.coupletComment.coupletCommentTime }}</view>
+                </view>
+                <view class="commentIndex">#{{ index + 1 }}</view>
+              </view>
+            </view>
+            <view class="comment-content">
+              <view>
+                {{ item.coupletComment.coupletCommentContent }}
+              </view>
+            </view>
+            <view class="flex-box">
+              <view class="comment-operation" data-idx="{{ index }}" bindtap="likeComment" data-commentid="{{ item.coupletComment.coupletCommentId }}">
+                <view wx:if="{{ item.isLike }}" >
+                  <i-icon type="praise_fill" size="30" color="#80848f"/>
+                  {{ item.coupletComment.coupletCommentLikes }}
+                </view>
+                <view wx:else>
+                  <i-icon type="praise" size="30"/>
+                  {{ item.coupletComment.coupletCommentLikes }}
+                </view>
+              </view>  
+              <view class="comment-operation" bindtap="viewResponse" data-idx="{{ index }}" data-commentid="{{ item.coupletComment.coupletCommentId }}">
+                <i-icon type="message" size="30"/>
+                {{ item.coupletComment.coupletCommentResponses }}
+              </view>
+            </view>
+            
+            <view class="line-heng"/>
+          </view>
+        </view>
+      </scroll-view>
+      <view wx:if="{{show}}">
+        <i-grid-item i-class="item">
+              <i-spin custom>
+                  <i-icon type="refresh" size="20" i-class="icon-load"></i-icon>
+                  <view>Loading</view>
+              </i-spin>
+        </i-grid-item>
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>
+<view wx:if="{{ current == 'comment' }}">
+  <view class="line-heng-fixed"/>
+  <view class="commentInput">
+    <view class="fan-box">
+      <view class="flex-box">
+        <view class="fan-inner-box"  style="width:70%">
+          <input class="weui-input" bindconfirm="comment" bindinput="getInput" value="{{commentInput}}" placeholder="说点什么吧"/>
+        </view>
+        <view class="fan-inner-box"  style="width:25%">
+          <button class="flex-box" max-length="120" focus="false" adjust-position="true" bindtap="comment" style="width: 100%;height: 80%">发布</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

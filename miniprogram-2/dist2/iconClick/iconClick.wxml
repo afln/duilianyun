@@ -1,0 +1,6 @@
+ <view>
+ 	<image src="{{iconA}}" class="img-style" animation="{{animCollect}}" bindtap="_clickA"></image>
+ 	<image src="{{iconB}}" class="img-style" animation="{{animTranspond}}" bindtap="_clickB"></image>
+ 	<image src="{{iconC}}" class="img-style" animation="{{animInput}}" bindtap="_clickC"></image>
+ 	<image src="/static/tabs/jia.png" class="img-plus-style" mode="fix" animation="{{animPlus}}" catchtap="_moreBtn"></image>
+ </view>

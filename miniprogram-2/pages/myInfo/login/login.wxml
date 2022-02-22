@@ -1,0 +1,16 @@
+<!--pages/myInfo/login/login.wxml-->
+<view>
+  <view>
+    <view class="userinfo" click="bindViewTap">
+      <!-- 获取用户头像直接显示在小程序中 -->
+      <open-data class="userinfo-avatar" type="userAvatarUrl"></open-data>
+      <view class="userinfo-nickname">
+        <!-- 获取用户昵称直接显示在小程序中 -->
+        <open-data type="userNickName" lang="zh_CN"></open-data>
+      </view>
+    </view>
+    <view>
+      <button class="user-login" bindgetuserinfo="getUser" open-type="getUserInfo" type="primary">授权登录</button>
+    </view>
+  </view>
+</view>

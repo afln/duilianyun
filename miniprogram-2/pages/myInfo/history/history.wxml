@@ -1,0 +1,125 @@
+<!--pages/myInfo/collection/collection.wxml-->
+<van-tabs active="{{ current }}" bind:change="onChange" swipeable animated lazy-render="false">
+  <van-tab title="楹联" name="couplet">
+    <scroll-view scroll-y="true" style="height: 100%; width: 100%; display: flex; flex-direction: column; ;margin-bottom:10rpx;">
+      <view wx:for="{{ couplets }}" class="couplets_list"> 
+        <view bindtap="coupletDetail" class="couplets_type" data-coupletid="{{item.couplet.coupletId}}">
+          <view class="upcouplets">
+            <view class="type">上联</view>
+            <view class="up">{{item.couplet.coupletUp}}</view>
+          </view>
+
+          <view class="upcouplets">
+            <view class="type">下联</view>
+            <view class="up">{{item.couplet.coupletDown}}</view>
+          </view>
+
+          <view>浏览时间：{{item.coupletBrow.coupletBrowTime}}</view>
+          <view class="line-heng"></view>
+        </view>
+      </view>
+    </scroll-view>
+  </van-tab>
+  <van-tab title="帖子" name="post">
+    <scroll-view scroll-y="true" class="container" enable-flex="true">
+      <block wx:for="{{posts}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+        <view class="feedItem" bindtap="showPostDetail" data-postid="{{item.post.postId}}">
+          <view class="fee">
+            <view class="feedSource">
+              <a class="">
+                <view class="avatar">
+                  <image src="{{item.user.userPortrait}}"></image>
+                </view>
+                <text>{{item.user.userNickname}}</text>
+              </a>
+            </view>
+            <view class="cloud">
+              <van-image
+                width="89"
+                height="19"
+                fit="contain"
+                src="../../static/images/post/cloud.png"
+              />
+            </view>
+          </view>
+          <view class="feedContent">
+            <view class="show">
+              <view class="question">
+                <view class="label">
+                  <text>【{{ item.postType.postType }}】</text>
+                </view>
+              </view>
+              <view class="question" qid="{{questionId}}">
+                <view class="questionLink">
+                  <text>{{item.post.postTitle}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="answerBody">
+              <view class="answerTxt">
+                <text aid="{{answerId}}">{{item.post.postContent}}</text>
+              </view>
+              <view class="answerActions">
+                <view class="like dot">
+                  <a>{{item.post.postLike}} 点赞 </a>
+                </view>
+                <view class="comments dot">
+                  <a>{{item.post.postComment}} 评论 </a>
+                </view>
+                <view class="comments">
+                  <a>{{item.post.postBrow}} 浏览 </a>
+                </view>
+                <view class="postTime">
+                  <a>浏览时间：{{item.postBrow.postBrowTime}}</a>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </van-tab>
+  <van-tab title="资料" name="document">
+    <form reportSubmit bindsubmit="submitFormId">
+      <block wx:for="{{documents}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+        <view class="header">
+          <view class="item">
+            <view class="book" hoverClass="none" bindtap="documentDetail" data-documentid="{{ item.documentDTO.document.documentId }}">
+              <view class="book-box">
+                <view class="logo">
+                  <image src="{{ serverUrl + item.documentDTO.documentPicture.fileType + '/' + item.documentDTO.documentPicture.fileId + '.' + item.documentDTO.documentPicture.fileType}}" style="width:160rpx;height:200rpx;"></image>
+                </view>
+                <view class="book-info">
+                  <view class="book-name">
+                    <text>{{ item.documentDTO.document.documentName }}</text>
+                  </view>
+                  <view class="introduction">
+                    <text>{{ item.documentDTO.document.documentIntroduction }}</text>
+                  </view>
+                </view>
+                <view class="star" wx:if="{{ item.documentDTO.document.documentComment == 0}}">
+                  暂无评分
+                </view>
+                <view class="star" wx:if="{{ item.documentDTO.document.documentComment != 0}}">
+                  <view class="flex-box">
+                    <view class="flex-box">{{ item.documentDTO.document.documentScore/item.documentDTO.document.documentComment }}</view>
+                    <view class="flex-box"><van-icon name="star" color="yellow"/></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="history_time">上次浏览时间：{{item.documentHistory.historyTime}}</view>
+          </view>
+        </view>
+      </block>
+    </form>
+  </van-tab>
+</van-tabs>
+<view wx:if="{{show}}">
+  <i-grid-item i-class="item">
+        <i-spin custom>
+            <i-icon type="refresh" size="20" i-class="icon-load"></i-icon>
+            <view>Loading</view>
+        </i-spin>
+  </i-grid-item>
+</view>

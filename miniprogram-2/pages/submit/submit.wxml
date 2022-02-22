@@ -1,0 +1,33 @@
+<form class="l-form-btn-class" catchsubmit='{{WhatDo?Update:submit}}' catchreset='reset'>
+
+	<view class="inputcomponent"><text class="text_style">姓名*</text><input name="name" class="input_com" label="作者姓名" id="name" placeholder-style="begin_style" placeholder="请输入您的姓名" />
+	</view>
+	<view class="inputcomponent"><text class="text_style">城市*</text><view bindtap="select_city" name="city" class="input_com" label="所在城市" id="city"><text class="view_com">{{form.city}}</text></view>
+	</view>
+	<view class="inputcomponent"><text class="text_style">地址</text><input name="address" class="input_com" label="作者地址" id="address" placeholder="请输入您的地址" />
+	</view>
+	<!-- <view class="inputcomponent"><text class="text_style">邮编</text><input name="postcode" class="input_com" label="作者邮编" id="postcode" placeholder="请输入您的邮政编码" />
+	</view> -->
+	<view class="inputcomponent"> <text class="text_style">电话*</text><input name="phone" maxlength="11" class="input_com" label="联系电话" id="phone" placeholder="请输入您的电话号码" />
+	</view>
+	<view class="inputcomponent"> <text class="text_style">邮箱</text><input name="email" class="input_com" label="作者邮箱" id="email" placeholder="请输入您的邮箱" />
+	</view>
+	<view class="inputcomponent"> <text class="text_style">文章标题*</text><input name="title" class="input_com" label="文章标题" id="title" placeholder="请输入您的文章标题" />
+	</view>
+	<view class="inputcomponent">
+		<text class="text_style">比赛类型*</text> <picker name="index" id="index" class="picker_container" bindchange="picker_change" mode="selector" range="{{array}}" value="{{index}}"><view>
+		{{selectNull?array[index]:'请选择参赛类型'}}
+		</view></picker>
+	</view>
+	<view class="inputcomponent">
+		<text class="text_style">投稿类型*</text> <picker name="type" id="type" class="picker_container" bindchange="type_change" mode="selector" range="{{TypeArray}}" value="{{type}}" range-key="competitionName"><view>
+		{{TypeSelect?TypeArray[type].competitionName:'请选择投稿类型'}}
+		</view></picker>
+	</view>
+
+<view class="inputcomponent1"><text class="another_text">文章内容*</text><textarea name="content" id="content" class="textarea_container" value="{{content}}" cursor="-2" placeholder="请输入文章内容" maxlength="150" data-show='yes' bindinput="textarea_cin"></textarea></view>
+	<view class="inputview">
+			<button form-type="{{WhatDo?Update:submit}}" type="primary" class="submit_button">提交</button>
+			<button form-type="reset" type="default" class="reset_button" >重置</button>
+	</view>
+</form>

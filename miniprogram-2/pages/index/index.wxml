@@ -1,0 +1,81 @@
+<view wx:if="{{loading}}">
+  <van-loading size="24px">加载中...</van-loading>
+</view>
+<view style="background-color: rgb(235,235 , 235);">
+  <van-search
+    value="{{ searchValue }}"
+    shape="round"
+    background="#e52a2a"
+    placeholder="请输入搜索关键词"
+    bind:change="change"
+    bind:search="search"
+  />
+
+  <scroll-view scroll-y="true" style="height: 100%; width: 100%; display: flex; flex-direction: column; ;margin-bottom:10rpx;">
+    <view class="big-logo">
+    <view class="place"></view>
+    <image class="tiaowen" src="/static/images/index/tiaowen1.png"></image>
+      <block wx:for-items="{{logos}}">
+        <view class="logoinfo" bindtap="moreType" data-typeid='{{item.coupletTypeId}}' data-name='{{item.title}}'>
+          <image style="width:50%;" src="{{item.image}}" mode="widthFix" />
+          <text class="logotext">{{item.title}}</text>
+        </view>
+      </block>
+      <image class="tiaowen" src="/static/images/index/tiaowen.png"></image>
+      <view class="place"></view>
+    </view>
+
+    <image src="/static/images/match.png" class="match" mode="widthFix" bindtap="match"></image>
+    <image class="tiaowen" src="/static/images/index/tiaowen1.png"></image>
+    <view class="couplets_list">
+      <view class="oneday_title">每日一联</view>
+              <view bindtap="coupletDetail" class="couplets_type" data-coupletid="{{oneCouplets[0].couplet.coupletId}}">
+          <view class="title_container">
+            <scroll-view class="Title" scroll-x="true" >{{oneCouplets[0].couplet.coupletTitle}}</scroll-view> 
+            <view class="information"><text class="information_test1">作者:</text><text class="information_test">{{oneCouplets[0].author.authorName}}</text></view>
+            <view class="information"><text class="information_test1">朝代:</text><text class="information_test">{{oneCouplets[0].couplet.coupletDate}}</text></view>
+          </view>
+          <view class="upcouplets">
+            <image class="type" src="../../static/tabs/bq.png" mode="widthFix"></image>
+            <view class="up">{{oneCouplets[0].couplet.coupletUp}}</view>
+          </view>
+
+          <view class="upcouplets">
+            <image class="type" src="../../static/tabs/bq.png" mode="widthFix"></image>
+            <view class="up">{{oneCouplets[0].couplet.coupletDown}}</view>
+          </view>
+
+        </view>
+    </view>
+    <image class="tiaowen" src="/static/images/index/tiaowen.png"></image>
+    <view>
+      <view wx:for="{{couplets}}" class="couplets_list"> 
+        <view bindtap="coupletDetail" class="couplets_type" data-coupletid="{{item.couplet.coupletId}}">
+          <view class="title_container">
+            <scroll-view class="Title" scroll-x="true" >{{item.couplet.coupletTitle}}</scroll-view> 
+            <view class="information"><text class="information_test1">作者:</text><text class="information_test">{{item.author.authorName}}</text></view>
+            <view class="information"><text class="information_test1">朝代:</text><text class="information_test">{{item.couplet.coupletDate}}</text></view>
+          </view>
+          <view class="upcouplets">
+            <image class="type" src="../../static/tabs/bq.png" mode="widthFix"></image>
+            <view class="up">{{item.couplet.coupletUp}}</view>
+          </view>
+
+          <view class="upcouplets">
+            <image class="type" src="../../static/tabs/bq.png" mode="widthFix"></image>
+            <view class="up">{{item.couplet.coupletDown}}</view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view wx:if="{{show}}">
+    <i-grid-item i-class="item">
+          <i-spin custom>
+              <i-icon type="refresh" size="20" i-class="icon-load"></i-icon>
+              <view>Loading</view>
+          </i-spin>
+    </i-grid-item>
+  </view>
+</view>

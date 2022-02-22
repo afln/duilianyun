@@ -1,0 +1,52 @@
+<!--pages/write/write.wxml-->
+<view class="write">
+  
+  <view class="container">
+    <view class='title'>
+    <input name="title" value="{{ postTitle }}" bindinput="getTitle" placeholder-class="placeholder" placeholder="在此输入标题" />
+  </view>
+</view>
+  <view class="container">
+    <view class='title'>
+    <input name="name" value="{{ postAuthor }}" bindinput="getAuthor" placeholder-class="placeholder" placeholder="在此输入姓名" />
+  </view>
+</view>
+  <view class="flex-box">
+    <view class="flex-box select">
+      <view class="flex-box fan-box flex-center" style="margin-top: 0px">
+        <view>选择朝代</view>
+      </view>
+      <van-dropdown-menu class="fan-box flex-center" title-class="selectTitle" active-color="#ee0a24">
+        <van-dropdown-item value="{{ postType }}" title-class="selectTitle" options="{{ postTypes }}"  bind:change="change"/>
+      </van-dropdown-menu>
+    </view>
+  </view>
+   <view class="flex-box">
+    <view class="flex-box select">
+      <view class="flex-box fan-box flex-center" style="margin-top: 0px">
+        <view>对联类型</view>
+      </view>
+      <van-dropdown-menu class="fan-box flex-center" title-class="selectTitle" active-color="#ee0a24">
+        <van-dropdown-item value="{{ postCategory }}" title-class="selectTitle" options="{{ postCategorys }}"  bind:change="Categorychange"/>
+      </van-dropdown-menu>
+    </view>
+  </view>
+    <view class="container">
+  <view class='row' id="textareawrap">
+    <textarea class='text' style="height:35px" value="{{ UpContent }}" bindinput="getUpContent" space="emsp" maxlength="60" name="content"placeholder="请输入对联的上联" />
+  </view>
+<view class='row' id="textareawrap">
+    <textarea class='text' style="height:35px" value="{{ DownContent }}" bindinput="getDownContent" space="emsp" maxlength="60" name="content"placeholder="请输入对联的下联" />
+  </view>
+  <view class='row' id="textareawrap">
+    <textarea class='text' value="{{ postAnnotation }}" bindinput="getannotation" space="emsp" maxlength="120" name="annotation"placeholder="请输入对联的注释" />
+  </view>
+  <view class='row' id="textareawrap">
+    <textarea class='text'  value="{{ postAppreciation }}" bindinput="getappreciation" space="emsp" maxlength="120" name="appreciation"placeholder="请输入对联的赏析" />
+  </view>
+  <view class="handle">
+    <button id="发布" formType="submit" bindtap="publicPost" class='btn'>发布</button>
+  </view>
+  </view>
+  
+</view>

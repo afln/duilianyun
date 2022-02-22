@@ -1,0 +1,227 @@
+/* pages/myInfo/collection/collection.wxss */
+.tiaowen{
+  margin-top: 1rpx;
+  width: 100%;
+  height: 10px;
+}
+
+.couplets_list{
+  /*display:flex;
+  flex-wrap:wrap;
+  margin-top:30rpx;*/
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-bottom :3px;
+  /*border-bottom: 1px solid #cccccc;*/
+  background-color: rgb(255, 255, 255);
+  border-radius: 6px;
+  width: 100%;
+  
+}
+
+.couplets_type{
+  margin-bottom: 10rpx;
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.upcouplets{
+  padding-top: 14rpx;
+  padding-bottom: 14rpx; 
+  display: flex;
+  flex-direction: row;
+}
+
+.type{
+  color: rgb(209, 52, 52);
+  font-size: 36rpx;
+  padding-left: 16rpx;
+  width: 13%;
+  
+}
+
+.up{
+  color: rgb(56, 56, 56);
+  width: 87%;
+  padding-left: 16rpx;
+  font-size: 36rpx;
+}
+
+.line-heng{
+  width:95%;
+  height: 1rpx;
+  background-color: rgb(211, 214, 219);
+  margin-top: 25rpx;
+  margin-left: 20rpx;
+}
+
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background: rgb(243, 245, 244);
+  padding: 0 0 0 0;
+  font-size: 27rpx;
+  color: rgb(66, 50, 50);
+}
+
+.container .feedItem {
+  width: 685rpx;
+  padding: 30rpx 30rpx 20rpx;
+  margin: 7rpx 0 6rpx 0;
+  background: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 5px #eee;
+  border-radius: 8px;
+}
+
+.container .feedItem .feedContent .question .label text {
+  font-size: 16px;
+  font-weight: 600px;
+  line-height: 24px;
+  color: rgb(212, 19, 19);
+}
+
+.label{
+  width: 190rpx;
+}
+
+.fee{
+  display: flex;
+  flex-direction: row
+}
+
+.cloud{
+  width: 150rpx;
+  height: 36rpx;
+}
+
+.container .feedItem .feedSource {
+  width: 690rpx;
+  left: 0;
+  height: 50rpx;
+}
+
+.container .feedItem .feedSource .avatar {
+  position: relative;
+  display: inline-block;
+}
+
+.container .feedItem .feedSource a {
+  display: inline-block;
+  height: 40rpx;
+}
+
+.container .feedItem .feedSource .avatar image {
+  /*position: absolute;*/
+  display: inline-block;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50rpx;
+  top: 10rpx;
+  vertical-align: middle;
+}
+
+.container .feedItem .feedSource text {
+  /*position: absolute;*/
+  display: inline-block;
+  height: 40rpx;
+  line-height: 24px;
+  vertical-align: middle;
+  margin: 0 0 15rpx 15rpx;
+  color: #a0acac;
+  font-size: 14px;
+}
+
+.container .feedItem .feedSource .head {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 16rpx;
+  width: 12px;
+  height: 12px;
+}
+
+.container .feedItem .feedSource .itemMore {
+  display: inline-block;
+  width: 40rpx;
+  height: 45rpx;
+}
+
+.container .feedItem .feedContent {
+  padding: 25rpx 0 0 0;
+}
+
+.container .feedItem .feedContent .question {
+  padding: 0 0 15rpx 0;
+}
+
+.container .feedItem .feedContent .question text {
+  font-size: 16px;
+  font-weight: 600px;
+  line-height: 20px;
+}
+
+.container .feedItem .feedContent .answerBody {
+  padding: 10rpx 0 0 0;
+  /*height: 10rpx;*/
+  font-size: 16px;
+  line-height: 20px;
+  color: #6e6e6e;
+}
+
+.answerTxt {
+  padding: 0 0 10rpx;
+  padding-left: 18rpx;
+  line-height: 50rpx;
+}
+.feedItem .feedContent .answerBody .answerTxt text{
+  font-size: 15px;
+}
+
+.container .feedItem .feedContent .answerActions {
+  width: 690rpx;
+  padding: 10rpx 0 0;
+  color: #a0acac;
+}
+
+.container .feedItem .feedContent .answerActions view {
+  display: inline-block;
+  vertical-align: text-bottom;
+  padding: 0 10rpx 0 0;
+  font-size: 14px;
+}
+
+.container .feedItem .feedContent .answerActions .dot ::after {
+  content: "•";
+}
+
+.container .feedItem .feedContent .question .label text {
+  font-size: 30rpx;
+  font-weight: 1000rpx;
+  line-height: 40rpx;
+  color: rgb(212, 19, 19);
+}
+
+.container .feedItem .feedContent .answerActions .postTime {
+  float: right;
+  margin-top: 2px;
+}
+
+.container .touchItem {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.show{
+  display: flex;
+  flex-direction: row;
+}

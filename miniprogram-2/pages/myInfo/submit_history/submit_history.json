@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "iconClick": "../../../dist2/iconClick/iconClick"
+  }
+}
